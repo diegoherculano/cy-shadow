@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="start"></div>
+  </body>
+
+  <script>
+    function createShadowTree(host, id) {
+      const shadowRoot = host.attachShadow({ mode: "open" });
+      const div = document.createElement("div");
+      div.id = id;
+      shadowRoot.appendChild(div);
+      return div;
+    }
+
+    const start = document.querySelector("#start");
+    const level1 = createShadowTree(start, "level1");
+    const level2 = createShadowTree(level1, "level2");
+    const level3 = createShadowTree(level2, "level3");
+    const level4 = createShadowTree(level3, "level4");
+
+    const button = document.createElement("button");
+    button.textContent = "Abrir Modal";
+    button.onclick = () => {
+      const div = document.createElement("div");
+      div.textContent = "Hello";
+      document.body.appendChild(div);
+    };
+    level4.appendChild(button);
+  </script>
+</html>
