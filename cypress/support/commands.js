@@ -1,4 +1,3 @@
-// Comando personalizado para encontrar elementos sombreados
 Cypress.Commands.add(
   "findShadowElement",
   { prevSubject: "element" },
