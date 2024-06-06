@@ -35,4 +35,8 @@ describe("template spec", () => {
       .find("button")
       .click();
   });
+
+  afterEach(() => {
+    cy.get("#hi").should("contain", "Hello");
+  });
 });
