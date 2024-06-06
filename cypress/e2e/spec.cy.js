@@ -29,7 +29,7 @@ describe("template spec", () => {
       .click();
   });
 
-  it.skip("alternative way 2", () => {
+  it.only("alternative way 2", () => {
     cy.get("#start")
       .findShadowElementWithLoop(["#level1", "#level2", "#level3", "#level4"])
       .find("button")

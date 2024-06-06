@@ -12,10 +12,10 @@ Cypress.Commands.add(
   "findShadowElementWithLoop",
   { prevSubject: "element" },
   (subject, selectors) => {
+    let element = cy.wrap(subject);
     for (let i = 0; i < selectors.length; i++) {
-      const element = cy.wrap(subject);
-
-      element.findShadowElement(selectors[i]);
+      element = element.shadow().find(selectors[i]);
     }
+    return element;
   }
 );
